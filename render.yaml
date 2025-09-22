@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: notes-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm ci && npm run render-build
+    startCommand: npm run render-start
+    autoDeploy: true
+    region: oregon
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: EMAIL_ENABLED
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_SECURE
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+
